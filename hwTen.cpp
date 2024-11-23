@@ -1,6 +1,7 @@
 ﻿// var - 59 | ukazateli / ochered' s odnoi golovoy / prostaya vstavka
 #include <iostream>
 #include <windows.h>
+#include <ctime>
 
 
 class Node {
@@ -112,6 +113,12 @@ int main() {
     setlocale(LC_ALL, "Russian");
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
+    // initializing clock timer & variable for time counting
+    std::clock_t start;
+    double duration;
+
+    start = std::clock();
+
     Queue q;
     q.enqueue(22);
     q.enqueue(14);
@@ -126,5 +133,8 @@ int main() {
 
     std::cout << "Отсортированная очередь: ";
     q.printQueue();
+    
+    duration = (std::clock() - start) / (double)CLOCKS_PER_SEC;
+    std::cout << "time passed (seconds): " << duration << '\n'; // count & print du
     return 0;
 }
